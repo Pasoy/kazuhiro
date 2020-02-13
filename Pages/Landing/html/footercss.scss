@@ -9,7 +9,7 @@ body {
 
   .footer {
     z-index: 1;
-    --footer-background: #7f5af0;
+    --footer-background: #ED5565;
     display: grid;
     position: relative;
     grid-area: footer;
@@ -34,7 +34,6 @@ body {
         transform: translate(-50%, 100%);
       }
     }
-
     .content {
       z-index: 2;
       display: grid;
@@ -93,7 +92,6 @@ body {
     height: 0rem;
   }
 }
-
 @keyframes bubble-move {
   0% {
     bottom: -4rem;

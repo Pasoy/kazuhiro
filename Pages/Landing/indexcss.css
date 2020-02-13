@@ -7,7 +7,7 @@ h1 {
     font-weight: bold;
     text-align: center;
     position: relative;
-    top: -10px;
+
 }
 
 a {
@@ -58,8 +58,8 @@ body {
     display: grid;
     grid-template-rows: 1fr auto;
     grid-template-areas: "main" "footer";
-    overflow-x: hidden;
-    min-height: 100vh;
+    overflow-x: auto;
+    min-height: 95vh;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -70,7 +70,6 @@ body {
     position: relative;
     grid-area: footer;
     min-height: 10rem;
-    width: 100%;
     text-align: center;
 }
 
@@ -92,14 +91,15 @@ body {
     animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s),
     bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
     transform: translate(-50%, 100%);
+    filter: blur(0.25rem) contrast(1)
 }
 
 .content {
     z-index: 2;
     display: grid;
-    grid-template-columns: 1fr auto;
-    grid-gap: 4rem;
-    padding: 2rem;
+    grid-template-columns: auto;
+    grid-gap: -4rem;
+    padding: -2rem;
     background: var(--footer-background);
 }
 
@@ -114,7 +114,7 @@ b {
 }
 
 p {
-    margin: 0;
+    /*margin: 0;*/
     font-size: .75rem;
 }
 
@@ -127,15 +127,6 @@ p {
 
  * {
     margin-right: .5rem;
-}
-
-.image {
-    align-self: center;
-    width: 4rem;
-    height: 4rem;
-    margin: 0.25rem 0;
-    background-size: cover;
-    background-position: center;
 }
 
 @keyframes bubble-size {

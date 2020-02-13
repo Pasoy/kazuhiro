@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="indexcss.css">
+    <link rel="script" href="html/playground.json">
     <meta charset="UTF-8">
     <title>Kazuhiro</title>
 </head>
@@ -32,23 +33,27 @@
 <div class="footer">
     <div class="bubbles">
         <div class="bubble"
+             style="--size:${2+Math.random()*4}rem; --distance:${6+Math.random()*4}rem; --position:${-5+Math.random()*110}%; --time:${2+Math.random()*2}s; --delay:${-1*(2+Math.random()*2)}s;"></div>
+        <div class="bubble"
              style="--size:4.066032227459916rem; --distance:7.9223967017302614rem; --position:65.48615484521511%; --time:2.8474922506041187s; --delay:-3.1115353607959957s;"></div>
+        <div class="bubble"
+             style="--size:3.6839500192789716rem; --distance:9.657885458455308rem; --position:60.32515302926663%; --time:2.1802159341962706s; --delay:-3.8572381583479984s;"></div>
+        <div class="bubble"
+             style="--size:3.6839500192789716rem; --distance:9.657885458455308rem; --position:60.32515302926663%; --time:2.4235345352347894s; --delay:-3.2312343534534584s;"></div>
     </div>
     <div class="content">
-        <div><a class="image" href="https://codepen.io/z-" target="_blank"
-                style="background-image: url('http://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/happy.svg')"></a>
-            <p>©2019 Adrian Davies, Pascal Schmiedjell, Oliver Seebach </p>
+        <div>
         </div>
 
     </div>
 </div>
-<svg style="position:fixed; top:100vh">
+<svg style="position:fixed; top:95vh">
     <defs>
         <filter id="blob">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
-            <feColorMatrix in="blur" mode="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
-                           result="blob"></feColorMatrix>
-            <feComposite in="SourceGraphic" in2="blob" operator="atop"></feComposite>
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                           result="blob"/>
+            <feComposite in="SourceGraphic" in2="blob" operator="atop"/>
         </filter>
     </defs>
 </svg>
