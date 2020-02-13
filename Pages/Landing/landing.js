@@ -1,4 +1,4 @@
-class ShoppingList extends React.Component {
+class Landing extends React.Component {
     render() {
         return (
             <head>
