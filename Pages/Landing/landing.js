@@ -2,9 +2,10 @@ class Landing extends React.Component {
     render() {
         return (
             <head>
-                <link rel="stylesheet" href="indexcss.css">
-                    <meta charset="UTF-8">
+                <link rel="stylesheet" href="indexcss.css"/> 
+                    <meta charset="UTF-8" />
                         <title>Kazuhiro</title>
+                       
             </head>
         <body>
 
@@ -17,7 +18,7 @@ class Landing extends React.Component {
                 </div>
             </a>
 
-            <a href="https://www.example.co.uk">
+            <a href="about.html">
                 <div id="btn2" class="button">
                     <h1>ABOUT</h1>
                 </div>
@@ -38,7 +39,7 @@ class Landing extends React.Component {
             <div class="content">
                 <div><a class="image" href="https://codepen.io/z-" target="_blank"
                         style="background-image: url('http://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/happy.svg')"></a>
-                    <p>©2019 Adrian Davies, Pascal Schmiedjell, Oliver Seebach </p>
+                    <p>©2019 Adrian Davies, Pascal Schmiedjell, Oliver Seebach, Yassin Hamami </p>
                 </div>
 
             </div>
