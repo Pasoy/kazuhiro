@@ -51,11 +51,6 @@ div.button:hover {
    
 }
 
-div.button:active {
-    background-color: #7f5af0;
-    transition: 0s;
-    color: #646768;
-}
 
 /* Footer CSS */
 body {

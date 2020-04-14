@@ -8,7 +8,6 @@ body {
 
 div.button {
     background-color: #ffffff;
-    color: #2c3e50;
     border: none;
     border-radius: 30px;
     width: 500px;
@@ -19,21 +18,18 @@ div.button {
 }
 
 div.button:hover {
-    background-color: #ffffff;
+    background-color: #7f5af0;
+    color: #fffffe;
     position: fixed;
     left: -50px;
     width: 600px;
     border-radius: 0px;
-    box-shadow: 0px 5px 0px #7f5af0;
+   
 }
 
-
-div.button:active {
-    background-color: #7f5af0;
-    transition: 0s;
-    color: #646768;
+#btn1{
+    top: 300px;
 }
-
 
 h1 {
     font-family: verdana, sans-serif;
