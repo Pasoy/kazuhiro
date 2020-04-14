@@ -65,3 +65,13 @@ p{
     color: #94a1b2;
     font-family: Verdana, sans-serif;
 }
+
+.footer {
+    z-index: 1;
+    --footer-background: #7f5af0;
+    display: grid;
+    position: relative;
+    grid-area: footer;
+    min-height: 10rem;
+    text-align: center;
+}
