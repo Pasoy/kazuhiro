@@ -17,11 +17,13 @@ import {
 import deckSvg from "./img/deck.svg";
 
 const ROOM_NAME_MIN_LENGTH = 4;
+const ROOM_NAME_MAX_LENGTH = 20;
 const ROOM_MAX_PLAYERS_MIN = 3;
 const ROOM_POINTS_MIN = 5;
 
 const checkIfValid = (roomName, roomMaxPlayers, roomPoints) =>
   roomName.length >= ROOM_NAME_MIN_LENGTH &&
+  roomName.length <= ROOM_NAME_MAX_LENGTH &&
   +roomMaxPlayers >= ROOM_MAX_PLAYERS_MIN &&
   +roomPoints >= ROOM_POINTS_MIN;
 

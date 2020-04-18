@@ -369,7 +369,8 @@ button,
 //}
 
 .Dashboard,
-.GameRoom {
+.GameRoom,
+.Profile {
   $headerDist: 10px;
 
   display: flex;
@@ -387,6 +388,7 @@ button,
   nav,
   .tabs,
   .game-rooms,
+  .content,
   .room-list,
   .GameCards,
   .bottom-section {
@@ -557,7 +559,8 @@ button,
       border-bottom: 4px solid $primary-color;
     }
   }
-  .game-rooms {
+  .game-rooms,
+  .content {
     display: flex;
     flex-flow: column nowrap;
 
