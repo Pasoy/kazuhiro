@@ -1,11 +1,13 @@
 {
-  "name": "cah-react",
-  "version": "0.1.0",
+  "name": "kazuhiro",
+  "version": "0.1.2",
   "private": true,
+  "homepage": "https://schmiedjell.at/",
   "dependencies": {
     "bcrypt": "^3.0.8",
     "concurrently": "^4.1.2",
     "express": "^4.17.1",
+    "gh-pages": "^2.2.0",
     "mongoose": "^5.9.9",
     "node-sass": "^4.13.1",
     "react": "^16.13.1",
@@ -29,6 +31,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "compile-scss": "sass src/App.scss src/App.css"
   },
   "eslintConfig": {
