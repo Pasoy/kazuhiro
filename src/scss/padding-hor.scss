@@ -1,0 +1,4 @@
+@mixin padding-hor($var) {
+  padding-left: $var;
+  padding-right: $var;
+}

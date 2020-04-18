@@ -1,0 +1,1022 @@
+@import "scss/vars.scss";
+
+@keyframes blackCard-enter {
+  from {
+    margin-top: 100%;
+  }
+  to {
+    margin-top: 0%;
+  }
+}
+@keyframes whiteCard-1-enter {
+  0% {
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    margin-left: 0;
+    transform: rotate(0deg);
+  }
+  100% {
+    margin-left: -270px;
+    transform: rotate(-16deg);
+  }
+}
+@keyframes whiteCard-2-enter {
+  0% {
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    margin-left: 0;
+    transform: rotate(0deg);
+  }
+  100% {
+    margin-left: 295px;
+    transform: rotate(16deg);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+button,
+.logout {
+  transition: background 0.1s, color 0.1s, border-color 0.1s;
+}
+.blackground {
+  z-index: $Z-blackground;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+}
+.Modal-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .Modal {
+    $padding-val: 20px;
+    $width: 400px;
+    position: absolute;
+    z-index: $Z-modal;
+    width: $width;
+    border-radius: 24px;
+    background: lighten($primary-bg-color, 2%);
+    @media (max-width: $width) {
+      width: 100%;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      width: 100%;
+      $height: 45px;
+      line-height: $height;
+      background: $primary-bg-color;
+      color: $primary-text-color;
+      height: $height;
+      border-bottom: 1px solid $primary-border-color;
+      border-radius: 24px 24px 0 0;
+      font-size: 18px;
+
+      .modal-close {
+        position: absolute;
+        display: inline-flex;
+        justify-content: center;
+        align-content: center;
+        height: $height;
+        width: $height;
+        right: 0;
+        @include button-colors(#1e1630, color, 20%);
+        cursor: pointer;
+
+        & > i {
+          line-height: $height !important;
+        }
+      }
+    }
+    .modal-content {
+      display: flex;
+      flex-flow: column wrap;
+      align-content: center;
+      @include padding-ver($padding-val);
+      @include padding-hor(20px);
+      font-weight: normal;
+
+      .input-with-label {
+        display: flex;
+        flex-flow: column wrap;
+        width: 100%;
+      }
+      input[type="text"],
+      input[type="password"],
+      input[type="number"] {
+        background-color: transparent;
+        border: none;
+        outline: none;
+
+        height: 30px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid $primary-border-color;
+        font-family: "Roboto", sans-serif;
+        font-weight: 900;
+        font-size: 14px;
+        color: #9582c3;
+
+        &::placeholder {
+          color: rgb(119, 103, 156);
+        }
+      }
+      input[type="number"] {
+        -moz-appearance: textfield;
+        appearance: textfield;
+        margin: 0;
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      .create-room,
+      .join-room {
+        @include button-colors(#7000ff, background, 3%);
+        transition-duration: 0.2s;
+
+        margin-top: 20px;
+        height: 40px;
+        border-radius: 20px;
+        padding: 0 65px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:disabled {
+          background: #808080;
+          font-weight: normal;
+          cursor: initial;
+        }
+      }
+    }
+  }
+}
+.NotificationList-wrapper {
+  position: absolute;
+  display: flex;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  justify-content: center;
+  pointer-events: none;
+
+  .NotificationList {
+    position: relative;
+    display: inline-flex;
+    flex-flow: column wrap;
+    width: 400px;
+    top: 10px;
+  }
+}
+
+.Notification-wrapper {
+  display: inline-flex;
+  flex-flow: column-reverse wrap;
+  margin-bottom: 5px;
+
+  .Notification {
+    @include user-select(none);
+    display: inline-flex;
+    z-index: $Z-notification;
+    align-items: center;
+    width: 100%;
+    min-height: 40px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    pointer-events: auto;
+    font-weight: normal;
+  }
+
+  .loading-bar {
+    @keyframes shrink {
+      from {
+        width: 100%;
+      }
+      to {
+        width: 0%;
+      }
+    }
+    animation: shrink linear;
+    position: absolute;
+    z-index: $Z-notification;
+    height: 5px;
+    background: rgba(0, 0, 0, 0.25);
+  }
+}
+
+.Notification-primary {
+  background: #007bff;
+  color: $notification-text-color;
+}
+.Notification-success {
+  background: #28a745;
+  color: $notification-text-color;
+}
+.Notification-danger {
+  background: #dc3545;
+  color: $notification-text-color;
+}
+.Notification-warning {
+  background: #ffc107;
+  color: #343a40;
+}
+.Notification-info {
+  background: #17a2b8;
+  color: $notification-text-color;
+}
+.Notification-unspecified {
+  background: #6c757d;
+  color: $notification-text-color;
+}
+.HomeScreen {
+  background-image: url("./img/dots.png");
+  background-size: contain;
+  background-color: $primary-bg-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .blackCard {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    position: absolute;
+    width: 454.52px;
+    height: 80vh; //757.83px
+    padding: 42px;
+    background: #1c1c21;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    @include responsive-font(5vw, 20px, 55px);
+    color: #f5f5ff;
+    animation: blackCard-enter 1s ease-out;
+  }
+  .homeButton,
+  .homeButton-noMargin {
+    border: none;
+    outline: inherit;
+    margin-bottom: 5vh; //58px
+    width: 100%;
+    height: 88.28px;
+    background: #f5f5f5;
+    border-radius: 50px;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    font-size: 36px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #000000;
+    transition-duration: 0.1s;
+    cursor: pointer;
+    &:hover {
+      border: 2px solid #f5f5f5;
+      background-color: transparent;
+      color: #f5f5f5;
+    }
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+  .homeButton-noMargin {
+    margin-bottom: 0px;
+  }
+  .homeInput {
+    border: none;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 3px;
+    outline: none;
+    color: $primary-text-color;
+    background-color: transparent;
+    font-size: 20px;
+  }
+  .whiteCard-1,
+  .whiteCard-2 {
+    position: absolute;
+    width: 314.67px; //314.67px 20vw
+    height: 50vh; //524.45px
+    padding: 29px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: "Lato", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    @include responsive-font(2vw, 28px, 33px);
+    color: #1c1c21;
+  }
+  .whiteCard-1 {
+    margin-top: -20px;
+    margin-left: -270px;
+    transform: rotate(-16deg);
+    animation: whiteCard-1-enter 2s ease-out;
+  }
+  .whiteCard-2 {
+    margin-top: 20px;
+    margin-left: 295px;
+    padding-left: 65px;
+    transform: rotate(16deg);
+    animation: whiteCard-2-enter 2s ease-out;
+  }
+}
+
+//.Dashboard {
+//  animation: fade-in 0.3s ease-out;
+//}
+
+.Dashboard,
+.GameRoom {
+  $headerDist: 10px;
+
+  display: flex;
+  flex-flow: column wrap;
+  background-color: $primary-bg-color;
+  color: $primary-text-color;
+  height: 100vh;
+  opacity: 1;
+
+  .flex-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  nav,
+  .tabs,
+  .game-rooms,
+  .room-list,
+  .GameCards,
+  .bottom-section {
+    @include respond-below(xs) {
+      @include padding-hor(20px);
+    }
+    @include respond-between(xs, sm) {
+      @include padding-hor(3%);
+    }
+    @include respond-between(sm, md) {
+      @include padding-hor(6%);
+    }
+    @include respond-between(md, lg) {
+      @include padding-hor(9%);
+    }
+    @include respond-above(lg) {
+      @include padding-hor(12%);
+    }
+  }
+
+  nav {
+    $height: 73px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    height: $height;
+    line-height: $height;
+    border-bottom: 1px solid $secondary-border-color;
+
+    .logo {
+      .cards {
+        font-size: 22px;
+        font-weight: 900;
+      }
+      .against {
+        font-size: 10px;
+        font-weight: bold;
+        color: $primary-color;
+      }
+      .humanity {
+        font-size: 14px;
+        font-weight: bold;
+      }
+      @include respond-below(xs) {
+        display: none;
+      }
+    }
+    .logo-mini {
+      .cards {
+        font-size: 22px;
+        font-weight: 900;
+      }
+      .against {
+        font-size: 22px;
+        font-weight: bold;
+        color: $primary-color;
+      }
+      .humanity {
+        font-size: 22px;
+        font-weight: bold;
+      }
+      @include respond-above(xs) {
+        display: none;
+      }
+    }
+    .user {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+
+      border-left: 1px solid $secondary-border-color;
+      width: 275px;
+      height: $height;
+      line-height: 0px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .room {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+
+      border-left: 1px solid $secondary-border-color;
+      @include padding-hor(20px);
+      height: $height;
+      line-height: 0px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .avatar {
+      cursor: pointer;
+    }
+    .welcome-message,
+    .room-name {
+      padding-left: 15px;
+    }
+    .username {
+      color: $primary-color;
+      cursor: pointer;
+    }
+    .logout {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @include button-colors($primary-color, color, 5%);
+      border-left: 1px solid $secondary-border-color;
+      border-right: 1px solid $secondary-border-color;
+      width: 70px;
+      height: $height;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  }
+  button {
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+  }
+  .tabs {
+    $height: 80px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: left;
+    background-color: darken($primary-bg-color, 3%);
+    height: 80px;
+
+    .tab-inactive,
+    .tab-active {
+      display: inline-flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+
+      width: auto;
+      height: 80px;
+      margin-right: 65px;
+      font-size: 18px;
+      border-bottom: 1px solid transparent;
+      cursor: pointer;
+    }
+    .tab-inactive {
+      color: rgba(255, 255, 255, 0.5);
+      transition-duration: 0.2s;
+      &:hover {
+        color: $primary-text-color;
+      }
+      &::after {
+        position: absolute;
+        content: "";
+        width: 0;
+        margin-top: -2px;
+        height: $height;
+        border-bottom: 4px solid $primary-color;
+        transition-duration: 0.8s;
+      }
+      &:hover::after {
+        width: 80px;
+      }
+    }
+    .tab-active {
+      padding-top: 4px;
+      border-bottom: 4px solid $primary-color;
+    }
+  }
+  .game-rooms {
+    display: flex;
+    flex-flow: column nowrap;
+
+    border-top: 1px solid $secondary-border-color;
+    padding-top: 50px;
+
+    .row-1 {
+      margin-bottom: 50px;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      .search-text {
+        font-size: 48px;
+        font-weight: 900;
+      }
+      .how-many {
+        color: $primary-color;
+      }
+      .refresh,
+      .create-room {
+        height: 50px;
+        border-radius: 25px;
+        padding: 0 65px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .buttons {
+        flex-flow: column wrap;
+        @include respond-above(sm) {
+          flex-flow: row nowrap;
+        }
+      }
+      .refresh {
+        border: 1px solid;
+        @include button-colors(rgb(75, 75, 75), border-color, 5%);
+      }
+      .create-room {
+        @include button-colors(#7000ff, background, 3%);
+        border: 1px solid transparent;
+        transition-duration: 0.2s;
+
+        @include respond-above(sm) {
+          margin-left: 30px;
+        }
+        @include respond-below(sm) {
+          margin-top: 5px;
+        }
+      }
+    }
+    .row-2 {
+      display: flex;
+      flex-flow: row nowrap;
+      width: 100%;
+
+      .search-input {
+        background-color: transparent;
+        border: none;
+        outline: none;
+
+        width: 50%;
+        height: 40px;
+        border-bottom: 1px solid $primary-border-color;
+        font-family: "Roboto", sans-serif;
+        font-weight: 900;
+        font-size: 18px;
+        color: #9582c3;
+
+        &::placeholder {
+          color: #9582c3;
+        }
+      }
+    }
+  }
+  .room-list {
+    .header {
+      $height: 50px;
+
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+
+      border: 1px solid transparent;
+      height: $height;
+      color: #78777d;
+      fill: #78777d;
+      font-size: 12px;
+      font-weight: bold;
+
+      .empty {
+        width: calc(26px + 5%);
+        height: $height;
+      }
+      .game-name {
+        width: 20%;
+      }
+      .players {
+        width: 15%;
+      }
+      .decks-used {
+        width: 15%;
+      }
+    }
+    .room {
+      $height: 68px;
+
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+
+      margin-bottom: 10px;
+      width: 100%;
+      height: $height;
+      background-color: $primary-color;
+      border: 1px solid $primary-border-color;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #e4e4e4;
+
+      .flag {
+        display: inline-flex;
+        justify-content: center;
+
+        width: calc(26px + 5%);
+      }
+      .game-name,
+      .players,
+      .decks-used {
+        text-overflow: ellipsis;
+      }
+      .game-name {
+        width: 20%;
+      }
+      .players {
+        width: 15%;
+      }
+      .decks-used {
+        width: 15%;
+      }
+      .players,
+      .decks-used {
+        word-spacing: 7px;
+      }
+      .join {
+        @include button-colors(#434ddf);
+        border: 1px solid transparent;
+        border-radius: 20px;
+        padding: 0 55px;
+        height: 40px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .fa-info-circle {
+        @include button-colors($primary-color, color, 5%);
+        cursor: help;
+        transition-duration: 0.2s;
+      }
+      .flex-wrapper {
+        margin-left: auto;
+        padding: 0 2.5%;
+      }
+    }
+  }
+  .bottom-section {
+    $gap: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    padding-bottom: 10px;
+    border-top: 1px solid $secondary-border-color;
+
+    .GameScoreboard {
+      width: 50%;
+      margin-right: ($gap / 2);
+    }
+    .GameChat {
+      width: 50%;
+      margin-left: ($gap / 2);
+    }
+  }
+  .GameCards {
+    display: flex;
+    flex-flow: column wrap;
+    flex: 1;
+    background: $secondary-bg-color;
+
+    .cards-top-section {
+      display: flex;
+      flex: 1;
+      flex-flow: row nowrap;
+      width: 100%;
+      padding: 30px 0;
+
+      .card-czar-confirm {
+        display: inline-flex;
+        flex-flow: column wrap;
+        width: 250px;
+
+        .picking {
+          display: flex;
+          align-items: center;
+          height: 35px;
+          line-height: 35px;
+          width: 100%;
+          margin-bottom: 15px;
+          color: $primary-text-color;
+
+          & > img {
+            padding: 0 12px;
+          }
+
+          .picking-text {
+            color: #9582c3;
+            font-weight: bolder;
+          }
+        }
+        .confirm-card {
+          display: flex;
+          flex: 1;
+          flex-flow: column wrap;
+          align-items: center;
+          border: 1px solid $primary-border-color;
+          border-radius: 4px;
+          padding: 20px 20px 15px 20px;
+
+          .description-wrapper {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            font-size: 18px;
+            font-weight: bolder;
+            color: $primary-text-color;
+
+            .description {
+              text-align: center;
+
+              .blank {
+                color: $primary-color;
+              }
+            }
+          }
+          .confirm {
+            @include button-colors(#434ddf, background, 3%);
+            transition-duration: 0.2s;
+
+            margin-top: 6px;
+            height: 35px;
+            border-radius: 17.5px;
+            padding: 0 30px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+
+            &:disabled {
+              background: #808080;
+              font-weight: normal;
+              cursor: initial;
+            }
+          }
+        }
+      }
+      .card-czar-selection {
+      }
+    }
+    .cards-bottom-section {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 200px;
+      border-top: 1px solid $primary-border-color;
+      padding: 20px 0 35px 0;
+    }
+  }
+  .GameScoreboard {
+    display: flex;
+    flex-flow: column nowrap;
+
+    .header {
+      display: flex;
+      flex-flow: row nowrap;
+      width: 100%;
+      color: #9582c3;
+      border-bottom: 1px solid $primary-border-color;
+      padding-bottom: $headerDist;
+      margin-bottom: $headerDist;
+      margin-top: $headerDist;
+
+      .scoreboard {
+        width: calc(50px + 35%);
+      }
+      .points {
+        width: 7%;
+      }
+      .medals {
+        width: auto;
+      }
+    }
+    .scoreboard {
+      display: flex;
+      flex-flow: column wrap;
+
+      .player {
+        $height: 35px;
+        display: flex;
+        flex-flow: row nowrap;
+        height: $height;
+        line-height: $height;
+        margin-bottom: 5px;
+        transition: background 0.1s;
+
+        .avatar,
+        .avatar-waiting {
+          width: 35px;
+          height: 35px;
+          margin-right: 15px;
+        }
+        .avatar-waiting {
+          opacity: 0.25;
+        }
+        .name,
+        .name-waiting {
+          width: 35%;
+          color: $primary-text-color;
+          font-weight: 900;
+        }
+        .name-waiting {
+          opacity: 0.25;
+        }
+        .points {
+          width: 7%;
+          color: $primary-text-color;
+          font-weight: 900;
+        }
+        .medals {
+          color: #9582c3;
+        }
+        .options {
+          @include button-colors(#9582c3, color, 5%);
+          width: 15px;
+          margin-left: auto;
+          text-align: center;
+          opacity: 0;
+          cursor: pointer;
+          transition: opacity 0.2s;
+        }
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.05);
+
+          .options {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  .GameChat {
+    $height: 160px;
+    display: flex;
+    flex-flow: row wrap;
+
+    .chat-scrollbar {
+      width: 100%;
+      height: $height !important;
+      margin-bottom: $headerDist;
+
+      .ScrollbarTrack {
+        opacity: 0;
+        transition: opacity 0.1s linear;
+
+        &:active {
+          opacity: 1;
+        }
+      }
+      .ScrollbarThumb {
+        background: $primary-border-color !important;
+      }
+
+      &:hover {
+        .ScrollbarTrack {
+          opacity: 1;
+        }
+      }
+    }
+    .chat {
+      display: flex;
+      flex-flow: column nowrap;
+      width: 100%;
+      height: $height;
+    }
+    .chat-header {
+      width: 100%;
+      color: #9582c3;
+      border-bottom: 1px solid $primary-border-color;
+      padding-bottom: $headerDist;
+      margin-bottom: $headerDist;
+      margin-top: $headerDist;
+    }
+    .chat-nav {
+      display: inline-flex;
+      width: 100%;
+
+      .chat-input {
+        background-color: #9682c31a;
+        padding-left: 10px;
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+        border: 1px solid $primary-border-color;
+        outline: 0;
+        border-radius: 4px;
+        color: #9582c3;
+        font-family: "Roboto", sans-serif;
+        font-size: 16px;
+        font-weight: 900;
+
+        &::placeholder {
+          color: #9582c3;
+        }
+      }
+      .send {
+        @include button-colors($primary-color);
+        margin-left: 10px;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        border: 1px solid $primary-border-color;
+        color: $primary-text-color;
+        text-align: center;
+        border-radius: 4px;
+        font-size: 22px;
+        cursor: pointer;
+      }
+    }
+    .message {
+      width: 100%;
+      font-weight: normal;
+      font-size: 16px;
+
+      .system-message {
+        color: $primary-color;
+      }
+      .user-message {
+        color: $primary-text-color;
+      }
+      .message-author {
+        font-weight: 900;
+        color: rgb(227, 219, 255);
+      }
+    }
+  }
+}

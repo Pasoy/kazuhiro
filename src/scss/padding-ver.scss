@@ -1,0 +1,4 @@
+@mixin padding-ver($var) {
+  padding-top: $var;
+  padding-bottom: $var;
+}

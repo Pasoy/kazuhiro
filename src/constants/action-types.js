@@ -1,0 +1,9 @@
+export const GET_ENDPOINT_ADRESS = "GET_ENDPOINT_ADRESS";
+export const GET_API = "GET_API";
+export const GET_LOGGED_IN = "GET_LOGGED_IN";
+export const GET_ROOMS_LIST = "GET_ROOMS_LIST";
+export const GET_USERNAME = "GET_USERNAME";
+export const GET_ROOM_ID = "GET_ROOM_ID";
+export const GET_ROOM_INFO = "GET_ROOM_INFO";
+export const ADD_NOTIFICATION = "ADD_NOTIFICATION";
+export const REMOVE_NOTIFICATION = "REMOVE_NOTIFICATION";

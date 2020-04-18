@@ -1,0 +1,9 @@
+@mixin button-colors($color, $property: background, $intensity: 1.5%) {
+    #{$property}: $color;
+    &:hover {
+        #{$property}: lighten($color, $intensity);
+    }
+    &:active {
+        #{$property}: darken($color, $intensity);
+    }
+}
