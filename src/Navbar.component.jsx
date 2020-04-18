@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 import { setCookie, getCookie } from "./functions/cookies";
 import { getUsername } from "./actions/index";
@@ -33,6 +33,11 @@ class Navbar extends React.Component {
     );
     this.setState({ redirectTo: logoutTo });
   }
+
+  redirectProfile = () => {
+    return <Redirect to="/profile" />;
+  };
+
   render() {
     const { username } = this.props;
     const { redirectTo } = this.state;
@@ -54,7 +59,15 @@ class Navbar extends React.Component {
               <img src={avatar} alt="A" />
             </div>
             <span className="welcome-message">
-              Welcome, <span className="username">{username}</span>!
+              Welcome,{" "}
+              <Link
+                className="username"
+                to="/profile"
+                style={{ textDecoration: "none" }}
+              >
+                {username}
+              </Link>
+              !
             </span>
           </div>
           <div className="logout" onClick={this.handleClickLogout.bind(this)}>
