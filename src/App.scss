@@ -417,36 +417,28 @@ button,
     border-bottom: 1px solid $secondary-border-color;
 
     .logo {
-      .cards {
+      .kazu {
         font-size: 22px;
         font-weight: 900;
       }
-      .against {
-        font-size: 10px;
+      .hiro {
+        font-size: 22px;
         font-weight: bold;
         color: $primary-color;
-      }
-      .humanity {
-        font-size: 14px;
-        font-weight: bold;
       }
       @include respond-below(xs) {
         display: none;
       }
     }
     .logo-mini {
-      .cards {
+      .kazu {
         font-size: 22px;
         font-weight: 900;
       }
-      .against {
+      .hiro {
         font-size: 22px;
         font-weight: bold;
         color: $primary-color;
-      }
-      .humanity {
-        font-size: 22px;
-        font-weight: bold;
       }
       @include respond-above(xs) {
         display: none;

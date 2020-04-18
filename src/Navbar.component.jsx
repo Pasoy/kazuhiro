@@ -41,14 +41,12 @@ class Navbar extends React.Component {
       <nav>
         {redirectTo.length > 0 ? <Redirect to={redirectTo} /> : ""}
         <div className="logo">
-          <span className="cards">Cards </span>
-          <span className="against">Against </span>
-          <span className="humanity">Humanity</span>
+          <span className="kazu">和</span>
+          <span className="hiro">宏</span>
         </div>
         <div className="logo-mini">
-          <span className="cards">C</span>
-          <span className="against">A</span>
-          <span className="humanity">H</span>
+          <span className="kazu">和</span>
+          <span className="hiro">宏</span>
         </div>
         <div className="flex-wrapper">
           <div className="user">
