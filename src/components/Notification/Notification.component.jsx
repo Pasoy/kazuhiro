@@ -8,8 +8,8 @@ import {
   DANGER,
   WARNING,
   INFO,
-} from "./constants/notification-types";
-import { removeNotification } from "./actions";
+} from "../../constants/notification-types";
+import { removeNotification } from "../../actions";
 
 class Notification extends React.Component {
   componentDidMount = () => {

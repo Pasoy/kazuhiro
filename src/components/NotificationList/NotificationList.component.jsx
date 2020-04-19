@@ -1,8 +1,8 @@
 import React from "react";
-import Notification from "./Notification.component";
+import Notification from "../Notification/Notification.component";
 
 import { connect } from "react-redux";
-import { addNotification, removeNotification } from "./actions";
+import { addNotification, removeNotification } from "../../actions";
 
 class NotificationList extends React.Component {
   render() {

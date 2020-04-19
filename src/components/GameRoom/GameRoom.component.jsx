@@ -1,8 +1,8 @@
 import React from "react";
-import NavbarGameRoom from "./NavbarGameRoom.component";
-import GameCards from "./GameCards.component";
-import GameScoreboard from "./GameScoreboard.component";
-import GameChat from "./GameChat.component";
+import NavbarGameRoom from "../NavbarGameRoom/NavbarGameRoom.component";
+import GameCards from "../GameCards/GameCards.component";
+import GameScoreboard from "../GameScoreboard/GameScoreboard.component";
+import GameChat from "../GameChat/GameChat.component";
 
 class GameRoom extends React.Component {
   render() {

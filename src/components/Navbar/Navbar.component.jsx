@@ -2,10 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 
-import { setCookie, getCookie } from "./functions/cookies";
-import { getUsername } from "./actions/index";
+import { setCookie, getCookie } from "../../functions/cookies";
+import { getUsername } from "../../actions/index";
 
-import avatar from "./img/avatar.png";
+import avatar from "../../assets/img/avatar.png";
 
 class Navbar extends React.Component {
   constructor(props) {

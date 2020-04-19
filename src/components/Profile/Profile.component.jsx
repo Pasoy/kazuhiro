@@ -1,10 +1,10 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 
-import Navbar from "./Navbar.component";
-import { getCookie } from "./functions/cookies";
+import Navbar from "../Navbar/Navbar.component";
+import { getCookie } from "../../functions/cookies";
 import { connect } from "react-redux";
-import { getUsername, addNotification } from "./actions/index";
+import { getUsername, addNotification } from "../../actions/index";
 
 class Profile extends React.Component {
   constructor(props) {

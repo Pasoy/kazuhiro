@@ -1,10 +1,10 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import HomeScreen from "./HomeScreen.component";
-import Dashboard from "./Dashboard.component";
-import GameRoom from "./GameRoom.component";
-import Profile from "./Profile.component";
-import NotificationList from "./NotificationList.component";
+import HomeScreen from "./components/HomeScreen/HomeScreen.component";
+import Dashboard from "./components/Dashboard/Dashboard.component";
+import GameRoom from "./components/GameRoom/GameRoom.component";
+import Profile from "./components/Profile/Profile.component";
+import NotificationList from "./components/NotificationList/NotificationList.component";
 import "./App.scss";
 
 function App() {

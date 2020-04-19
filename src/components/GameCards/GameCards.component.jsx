@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { getCookie } from "./functions/cookies";
+import { getCookie } from "../../functions/cookies";
 
-import pedalJS from "./img/avatar.png";
+import pedalJS from "../../assets/img/avatar.png";
 
 class GameCards extends React.Component {
   constructor(props) {

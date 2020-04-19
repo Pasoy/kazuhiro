@@ -1,11 +1,11 @@
 import React from "react";
-import Modal from "./Modal.component";
+import Modal from "../Modal/Modal.component";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { getCookie } from "./functions/cookies";
+import { getCookie } from "../../functions/cookies";
 
-import flagGB from "./img/gb.svg";
+import flagGB from "../../assets/img/gb.svg";
 
 class Room extends React.Component {
   constructor(props) {

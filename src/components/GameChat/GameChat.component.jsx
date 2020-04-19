@@ -2,7 +2,7 @@ import React from "react";
 import { Scrollbar } from "react-scrollbars-custom";
 import { connect } from "react-redux";
 
-import { getUsername } from "./actions/index";
+import { getUsername } from "../../actions/index";
 
 const Message = ({ type, username, children }) => (
   <span className="message">

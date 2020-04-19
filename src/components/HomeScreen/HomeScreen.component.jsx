@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 
-import randomCard from "./functions/randomCard";
-import { setCookie, getCookie } from "./functions/cookies";
-import { getLoggedIn, addNotification } from "./actions/index";
-import { SUCCESS, DANGER } from "./constants/notification-types";
+import randomCard from "../../functions/randomCard";
+import { setCookie, getCookie } from "../../functions/cookies";
+import { getLoggedIn, addNotification } from "../../actions/index";
+import { SUCCESS, DANGER } from "../../constants/notification-types";
 
 const WhiteCardLeft = ({ children }) => {
   return <div className="whiteCard-1">{children}</div>;

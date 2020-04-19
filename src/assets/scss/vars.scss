@@ -1,0 +1,17 @@
+@import "./user-select";
+@import "./responsive-font";
+@import "./button-colors";
+@import "./respond-above";
+@import "./respond-below";
+@import "./respond-between";
+@import "./padding-hor";
+@import "./padding-ver";
+@import "./z-indexes";
+
+$primary-bg-color: #16161a;
+$secondary-bg-color: darken($primary-bg-color, 2%);
+$primary-color: #7f5af0;
+$primary-text-color: #fffffe;
+$primary-border-color: #232329;
+$secondary-border-color: #232329;
+$notification-text-color: #fffffe;

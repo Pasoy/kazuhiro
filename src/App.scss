@@ -1,4 +1,4 @@
-@import "scss/vars.scss";
+@import "assets/scss/vars.scss";
 
 @keyframes blackCard-enter {
   from {
@@ -268,7 +268,7 @@ button,
   color: $notification-text-color;
 }
 .HomeScreen {
-  background-image: url("./img/dots.png");
+  background-image: url("./assets//img/dots.png");
   background-size: contain;
   background-color: $primary-bg-color;
   display: flex;

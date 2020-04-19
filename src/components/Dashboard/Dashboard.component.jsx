@@ -1,20 +1,20 @@
 import React from "react";
-import Navbar from "./Navbar.component";
-import Modal from "./Modal.component";
-import Room from "./Room.component";
-import Tab from "./Tab.component";
-import ModalInput from "./ModalInput.component";
+import Navbar from "../Navbar/Navbar.component";
+import Modal from "../Modal/Modal.component";
+import Room from "../Room/Room.component";
+import Tab from "../Tab/Tab.component";
+import ModalInput from "../ModallInput/ModalInput.component";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
-import { getCookie } from "./functions/cookies";
+import { getCookie } from "../../functions/cookies";
 import {
   getUsername,
   getRoomsList,
   getRoomId,
   addNotification,
-} from "./actions/index";
-import deckSvg from "./img/deck.svg";
+} from "../../actions/index";
+import deckSvg from "../../assets/img/deck.svg";
 
 const ROOM_NAME_MIN_LENGTH = 4;
 const ROOM_NAME_MAX_LENGTH = 20;

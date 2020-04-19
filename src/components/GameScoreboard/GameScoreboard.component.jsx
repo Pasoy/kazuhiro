@@ -1,12 +1,12 @@
 import React from "react";
 //import { Scrollbar } from "react-scrollbars-custom";
-import Player from "./Player.component";
+import Player from "../Player/Player.component";
 import { connect } from "react-redux";
 
 //import { getCookie } from "./functions/cookies";
-import { getRoomInfo } from "./actions/index";
+import { getRoomInfo } from "../../actions/index";
 
-import pedalJS from "./img/avatar.png";
+import pedalJS from "../../assets/img/avatar.png";
 
 /*const test = [
   {

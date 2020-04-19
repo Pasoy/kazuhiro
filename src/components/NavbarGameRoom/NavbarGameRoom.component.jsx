@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 
-import flag from "./img/gb.svg";
-import { getCookie } from "./functions/cookies";
-import { getRoomInfo } from "./actions/index";
-import { getUsername } from "./actions/index";
+import flag from "../../assets/img/gb.svg";
+import { getCookie } from "../../functions/cookies";
+import { getRoomInfo } from "../../actions/index";
+import { getUsername } from "../../actions/index";
 
 class NavbarGameRoom extends React.Component {
   constructor(props) {
