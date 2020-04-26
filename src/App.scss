@@ -390,7 +390,6 @@ button,
   .game-rooms,
   .content,
   .room-list,
-  .GameCards,
   .bottom-section {
     @include respond-below(xs) {
       @include padding-hor(20px);

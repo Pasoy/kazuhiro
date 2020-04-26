@@ -4,6 +4,7 @@ import Modal from "../Modal/Modal.component";
 import Room from "../Room/Room.component";
 import Tab from "../Tab/Tab.component";
 import ModalInput from "../ModallInput/ModalInput.component";
+import CardDecks from "../CardDecks/carddecks.component";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
@@ -210,7 +211,6 @@ class Dashboard extends React.Component {
       </div>
     );
 
-    const Tab2 = <div>Tab2</div>;
     const Tab3 = <div>Tab3</div>;
 
     const enter = this.handleEnter.bind(this);
@@ -298,7 +298,7 @@ class Dashboard extends React.Component {
             case 0:
               return Tab1;
             case 1:
-              return Tab2;
+              return <CardDecks />;
             case 2:
               return Tab3;
             default:
