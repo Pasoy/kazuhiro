@@ -15,3 +15,29 @@ $primary-text-color: #fffffe;
 $primary-border-color: #232329;
 $secondary-border-color: #232329;
 $notification-text-color: #fffffe;
+$primary-button-color: #7f5af0;
+$secondary-button-color: darken($primary-button-color, 2%);
+$button-disabled-color: #808080;
+$button-refresh-color: rgb(75, 75, 75);
+
+$black-card-bg-color: #1c1c21;
+$black-card-text-color: #f5f5ff;
+$white-card-bg-color: #f5f5ff;
+$white-card-text-color: #1c1c21;
+
+$search-input-color: #9582c3;
+
+$room-list-text-color: #e4e4e4;
+$room-list-bg-color: $secondary-bg-color;
+$room-list-icon-color: $primary-color;
+$room-picking-text-color: #9582c3;
+$room-card-text-color: $primary-text-color;
+$room-card-blank-color: $primary-color;
+
+$room-scoreboard-text-color: #9582c3;
+$room-scoreboard-medals-text-color: #9582c3;
+$room-scoreboard-options-text-color: #9582c3;
+
+$room-chat-header-color: #9582c3;
+$room-chat-input-text-color: #9582c3;
+$room-chat-placeholder-text-color: #9582c3;

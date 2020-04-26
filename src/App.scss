@@ -117,7 +117,7 @@ button,
         height: $height;
         width: $height;
         right: 0;
-        @include button-colors(#1e1630, color, 20%);
+        @include button-colors($secondary-button-color, color, 20%);
         cursor: pointer;
 
         & > i {
@@ -169,7 +169,7 @@ button,
       }
       .create-room,
       .join-room {
-        @include button-colors(#7000ff, background, 3%);
+        @include button-colors($primary-button-color, background, 3%);
         transition-duration: 0.2s;
 
         margin-top: 20px;
@@ -181,7 +181,7 @@ button,
         cursor: pointer;
 
         &:disabled {
-          background: #808080;
+          background: $button-disabled-color;
           font-weight: normal;
           cursor: initial;
         }
@@ -284,13 +284,13 @@ button,
     width: 454.52px;
     height: 80vh; //757.83px
     padding: 42px;
-    background: #1c1c21;
+    background: $black-card-bg-color;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
     font-family: "Lato", sans-serif;
     font-weight: bold;
     @include responsive-font(5vw, 20px, 55px);
-    color: #f5f5ff;
+    color: $black-card-text-color;
     animation: blackCard-enter 1s ease-out;
   }
   .homeButton,
@@ -339,7 +339,7 @@ button,
     width: 314.67px; //314.67px 20vw
     height: 50vh; //524.45px
     padding: 29px;
-    background: #f5f5f5;
+    background: $white-card-bg-color;
     border-radius: 10px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-family: "Lato", sans-serif;
@@ -347,7 +347,7 @@ button,
     font-weight: 600;
     line-height: normal;
     @include responsive-font(2vw, 28px, 33px);
-    color: #1c1c21;
+    color: $white-card-text-color;
   }
   .whiteCard-1 {
     margin-top: -20px;
@@ -488,7 +488,7 @@ button,
       justify-content: center;
       align-items: center;
 
-      @include button-colors($primary-color, color, 5%);
+      @include button-colors($primary-button-color, color, 5%);
       border-left: 1px solid $secondary-border-color;
       border-right: 1px solid $secondary-border-color;
       width: 70px;
@@ -598,10 +598,10 @@ button,
       }
       .refresh {
         border: 1px solid;
-        @include button-colors(rgb(75, 75, 75), border-color, 5%);
+        @include button-colors($button-refresh-color, border-color, 5%);
       }
       .create-room {
-        @include button-colors(#7000ff, background, 3%);
+        @include button-colors($primary-button-color, background, 3%);
         border: 1px solid transparent;
         transition-duration: 0.2s;
 
@@ -629,10 +629,10 @@ button,
         font-family: "Roboto", sans-serif;
         font-weight: 900;
         font-size: 18px;
-        color: #9582c3;
+        color: $search-input-color;
 
         &::placeholder {
-          color: #9582c3;
+          color: $search-input-color;
         }
       }
     }
@@ -676,12 +676,12 @@ button,
       margin-bottom: 10px;
       width: 100%;
       height: $height;
-      background-color: $primary-color;
+      background-color: $room-list-bg-color;
       border: 1px solid $primary-border-color;
       border-radius: 5px;
       font-size: 18px;
       font-weight: bold;
-      color: #e4e4e4;
+      color: $room-list-text-color;
 
       .flag {
         display: inline-flex;
@@ -708,7 +708,7 @@ button,
         word-spacing: 7px;
       }
       .join {
-        @include button-colors(#434ddf);
+        @include button-colors($secondary-button-color);
         border: 1px solid transparent;
         border-radius: 20px;
         padding: 0 55px;
@@ -717,7 +717,7 @@ button,
         cursor: pointer;
       }
       .fa-info-circle {
-        @include button-colors($primary-color, color, 5%);
+        @include button-colors($room-list-icon-color, color, 5%);
         cursor: help;
         transition-duration: 0.2s;
       }
@@ -775,7 +775,7 @@ button,
           }
 
           .picking-text {
-            color: #9582c3;
+            color: $room-picking-text-color;
             font-weight: bolder;
           }
         }
@@ -794,18 +794,18 @@ button,
             flex: 1;
             font-size: 18px;
             font-weight: bolder;
-            color: $primary-text-color;
+            color: $room-card-text-color;
 
             .description {
               text-align: center;
 
               .blank {
-                color: $primary-color;
+                color: $room-card-blank-color;
               }
             }
           }
           .confirm {
-            @include button-colors(#434ddf, background, 3%);
+            @include button-colors($secondary-button-color, background, 3%);
             transition-duration: 0.2s;
 
             margin-top: 6px;
@@ -817,7 +817,7 @@ button,
             cursor: pointer;
 
             &:disabled {
-              background: #808080;
+              background: $button-disabled-color;
               font-weight: normal;
               cursor: initial;
             }
@@ -844,7 +844,7 @@ button,
       display: flex;
       flex-flow: row nowrap;
       width: 100%;
-      color: #9582c3;
+      color: $room-scoreboard-text-color;
       border-bottom: 1px solid $primary-border-color;
       padding-bottom: $headerDist;
       margin-bottom: $headerDist;
@@ -872,6 +872,7 @@ button,
         line-height: $height;
         margin-bottom: 5px;
         transition: background 0.1s;
+        border-radius: 5px;
 
         .avatar,
         .avatar-waiting {
@@ -897,10 +898,14 @@ button,
           font-weight: 900;
         }
         .medals {
-          color: #9582c3;
+          color: $room-scoreboard-medals-text-color;
         }
         .options {
-          @include button-colors(#9582c3, color, 5%);
+          @include button-colors(
+            $room-scoreboard-options-text-color,
+            color,
+            5%
+          );
           width: 15px;
           margin-left: auto;
           text-align: center;
@@ -911,6 +916,7 @@ button,
 
         &:hover {
           background: rgba(255, 255, 255, 0.05);
+          cursor: pointer;
 
           .options {
             opacity: 1;
@@ -955,7 +961,7 @@ button,
     }
     .chat-header {
       width: 100%;
-      color: #9582c3;
+      color: $room-chat-header-color;
       border-bottom: 1px solid $primary-border-color;
       padding-bottom: $headerDist;
       margin-bottom: $headerDist;
@@ -974,17 +980,17 @@ button,
         border: 1px solid $primary-border-color;
         outline: 0;
         border-radius: 4px;
-        color: #9582c3;
+        color: $room-chat-input-text-color;
         font-family: "Roboto", sans-serif;
         font-size: 16px;
         font-weight: 900;
 
         &::placeholder {
-          color: #9582c3;
+          color: $room-chat-placeholder-text-color;
         }
       }
       .send {
-        @include button-colors($primary-color);
+        @include button-colors($primary-button-color);
         margin-left: 10px;
         width: 60px;
         height: 60px;

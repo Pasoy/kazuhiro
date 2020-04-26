@@ -39,8 +39,8 @@ class Dashboard extends React.Component {
 
       roomNameText: "",
       roomPasswordText: "",
-      roomMaxPlayersText: "10",
-      roomPointsText: "15",
+      roomMaxPlayersText: 10,
+      roomPointsText: 15,
     };
   }
 
@@ -235,7 +235,7 @@ class Dashboard extends React.Component {
             onKeyUp={enter}
           />
           <ModalInput
-            label="Rooms password:"
+            label="Room password:"
             type="password"
             placeholder="(optional)"
             onChange={(evt) =>
