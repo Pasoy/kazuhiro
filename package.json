@@ -9,7 +9,7 @@
     "express": "^4.17.1",
     "gh-pages": "^2.2.0",
     "mongoose": "^5.9.9",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
     "react-custom-scrollbars": "^4.2.1",
